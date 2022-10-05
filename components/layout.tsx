@@ -22,18 +22,6 @@ const OptimizeLayout: FC<LayoutProps> = ({ children, ...props }) => {
     <Layout {...props}>
       <Page>
         <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_TRACKING_ID}`}
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', ${process.env.NEXT_PUBLIC_GOOGLE_TRACKING_ID});
-        `}
-        </Script>
-        <Script
           src={`https://www.googleoptimize.com/optimize.js?id=${process.env.NEXT_PUBLIC_OPTIMIZE_CONTAINER_ID}`}
         />
         <GaProvider value={ga}>{children}</GaProvider>
